@@ -9,7 +9,7 @@ from certbot import errors
 from certbot.plugins import dns_common
 from certbot.plugins import dns_common_lexicon
 
-from lexicon.providers import dynu
+from lexicon.providers import yandex
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class Authenticator(dns_common.DNSAuthenticator):
     description = 'Obtain certificates using a DNS TXT record ' + \
                   '(if you are using Dynu for DNS.)'
 
-    ttl = 60
+    ttl = 10
 
     def __init__(self, *args, **kwargs):
         super(Authenticator, self).__init__(*args, **kwargs)
@@ -31,7 +31,7 @@ class Authenticator(dns_common.DNSAuthenticator):
     @classmethod
     def add_parser_arguments(cls, add):
         super(Authenticator, cls).add_parser_arguments(
-            add, default_propagation_seconds=60)
+            add, default_propagation_seconds=180)
         add("credentials", help="Dynu credentials file.")
 
     def more_info(self):  # pylint: disable=missing-docstring,no-self-use
@@ -73,13 +73,13 @@ class _DynuLexiconClient(dns_common_lexicon.LexiconClient):
     def __init__(self, auth_token, ttl):
         super(_DynuLexiconClient, self).__init__()
 
-        config = dns_common_lexicon.build_lexicon_config('dynu', {
+        config = dns_common_lexicon.build_lexicon_config('yandex', {
             'ttl': ttl,
         }, {
             'auth_token': auth_token,
         })
 
-        self.provider = dynu.Provider(config)
+        self.provider = yandex.Provider(config)
 
     def _handle_http_error(self, e, domain_name):
         if domain_name in str(e) and (
