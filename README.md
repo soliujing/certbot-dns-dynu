@@ -15,7 +15,7 @@ Installation
 
 ```
 pip install --upgrade certbot
-pip install git+https://github.com/soliujing/certbot-dns-yandex
+pip install certbot-dns-yandex
 ```
 
 Verify:
