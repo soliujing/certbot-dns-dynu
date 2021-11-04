@@ -1,7 +1,9 @@
 certbot-dns-yandex
+forked from upstream and modified a bit to support yandex dns API :)
+
 ============
 
-Dynu DNS Authenticator plugin for [Certbot](https://certbot.eff.org/).
+Yandex DNS Authenticator plugin for [Certbot](https://certbot.eff.org/).
 
 This plugin is built from the ground up and follows the development style and life-cycle
 of other `certbot-dns-*` plugins found in the
@@ -50,38 +52,6 @@ certbot ... \
         --dns-dynu-credentials ~/dynu-credentials.ini \
         --dns-dynu-propagation-seconds 1880
         certonly
-```
-
-FAQ
------
-
-##### Why such long name for a plugin?
-
-This follows the upstream nomenclature: `certbot-dns-<dns-provider>`.
-
-##### Why do I have to use `:` separator in the name? And why are the configuration file parameters so weird?
-
-This is a limitation of the Certbot interface towards _third-party_ plugins.
-
-For details read the discussions:
-
-- https://github.com/certbot/certbot/issues/6504#issuecomment-473462138
-- https://github.com/certbot/certbot/issues/6040
-- https://github.com/certbot/certbot/issues/4351
-- https://github.com/certbot/certbot/pull/6372
-
-Development
------------
-
-Create a virtualenv, install the plugin (`editable` mode),
-spawn the environment and run the test:
-
-```
-virtualenv -p python3 .venv
-. .venv/bin/activate
-pip install -e .
-docker-compose up -d
-./test/run_certonly.sh test/dynu-credentials.ini
 ```
 
 License
