@@ -1,0 +1,1 @@
+"""Let's Encrypt Yandex DNS plugin"""

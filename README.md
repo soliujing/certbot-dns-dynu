@@ -23,11 +23,11 @@ Verify:
 $ certbot plugins --text
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-* dns-dynu
-Description: Obtain certificates using a DNS TXT record (if you are using Dynu
+* dns-yandex
+Description: Obtain certificates using a DNS TXT record (if you are using Yandex
 for DNS.)
 Interfaces: Authenticator, Plugin
-Entry point: dns-dynu = certbot_dns_dynu.dns_dynu:Authenticator
+Entry point: dns-yandex = certbot_dns_yandex.dns_yandex:Authenticator
 
 ...
 ...
@@ -36,10 +36,10 @@ Entry point: dns-dynu = certbot_dns_dynu.dns_dynu:Authenticator
 Configuration
 -------------
 
-The credentials file e.g. `~/dynu-credentials.ini` should look like this:
+The credentials file e.g. `~/yandex-credentials.ini` should look like this:
 
 ```
-dns_dynu_auth_token = AbCbASsd!@34
+dns_yandex_auth_token = 123456789ABCDEF0000000000000000000000000000000000000
 ```
 
 Usage
@@ -48,21 +48,17 @@ Usage
 
 ```
 certbot ... \
-        -a dns-dynu  \
-        --dns-dynu-credentials ~/dynu-credentials.ini \
-        --dns-dynu-propagation-seconds 1880
+        -a dns-yandex  \
+        --dns-yandex-credentials ~/yandex-credentials.ini \
+        --dns-yandex-propagation-seconds 1880
         certonly
 ```
 
-License
---------
-
-Copyright (c) 2021 [Bikramjeet Singh](https://github.com/bikram990)
 
 Credits
 --------
 [PowerDNS](https://github.com/pan-net-security/certbot-dns-powerdns)
-
+[certbot-dns-dynu](https://github.com/bikram990/certbot-dns-dynu)
 [dns-lexicon](https://github.com/AnalogJ/lexicon)
 
 Helpful links
@@ -71,10 +67,6 @@ Helpful links
 [DNS Plugin list](https://certbot.eff.org/docs/using.html?highlight=dns#dns-plugins)
 
 [acme.sh](https://github.com/acmesh-official/acme.sh)
-
-[dynu with acme.sh](https://gist.github.com/tavinus/15ea64c50ac5fb7cea918e7786c94a95)
-
-[dynu api](https://www.dynu.com/Support/API)
 
 
 
