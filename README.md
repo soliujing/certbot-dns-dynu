@@ -1,4 +1,4 @@
-certbot-dns-dynu
+certbot-dns-yandex
 ============
 
 Dynu DNS Authenticator plugin for [Certbot](https://certbot.eff.org/).
@@ -12,7 +12,7 @@ Installation
 
 ```
 pip install --upgrade certbot
-pip install certbot-dns-dynu
+pip install certbot-dns-yandex
 ```
 
 Verify:
@@ -21,10 +21,10 @@ Verify:
 $ certbot plugins --text
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-* certbot-dns-dynu:dns-dynu
-Description: Obtain certificates using a DNS TXT record (if you are using
-Dynu for DNS.)
-Interfaces: IAuthenticator, IPlugin
+* dns-dynu
+Description: Obtain certificates using a DNS TXT record (if you are using Dynu
+for DNS.)
+Interfaces: Authenticator, Plugin
 Entry point: dns-dynu = certbot_dns_dynu.dns_dynu:Authenticator
 
 ...
@@ -37,7 +37,7 @@ Configuration
 The credentials file e.g. `~/dynu-credentials.ini` should look like this:
 
 ```
-certbot_dns_dynu:dns_dynu_auth_token = AbCbASsd!@34
+dns_dynu_auth_token = AbCbASsd!@34
 ```
 
 Usage
@@ -46,8 +46,9 @@ Usage
 
 ```
 certbot ... \
-        --authenticator certbot-dns-dynu:dns-dynu  \
-        --certbot-dns-dynu:dns-dynu-credentials ~/dynu-credentials.ini \
+        -a dns-dynu  \
+        --dns-dynu-credentials ~/dynu-credentials.ini \
+        --dns-dynu-propagation-seconds 1880
         certonly
 ```
 
