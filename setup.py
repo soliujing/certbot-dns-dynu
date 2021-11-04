@@ -25,12 +25,12 @@ setup(
     name='certbot-dns-yandex',
     version=version,
 
-    description="Dynu DNS Authenticator plugin for Certbot",
+    description="Yandex DNS Authenticator plugin for Certbot",
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/soliujing/certbot-dns-yandex',
     download_url='https://github.com/soliujing/certbot-dns-yandex',
-    author="Bikramjeet Singh",
+    author="Jing",
     license='Apache License 2.0',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     classifiers=[
@@ -63,7 +63,7 @@ setup(
 
     entry_points={
         'certbot.plugins': [
-            'dns-dynu = certbot_dns_dynu.dns_dynu:Authenticator',
+            'dns-yandex = certbot_dns_yandex.dns_yandex:Authenticator',
         ],
     },
     test_suite='certbot_dns_yandex',
