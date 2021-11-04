@@ -22,14 +22,14 @@ install_requires = [
 here = path.abspath(path.dirname(__file__))
 
 setup(
-    name='certbot-dns-dynu',
+    name='certbot-dns-yandex',
     version=version,
 
     description="Dynu DNS Authenticator plugin for Certbot",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/bikram990/certbot-dns-dynu',
-    download_url='https://github.com/bikram990/certbot-dns-dynu/archive/refs/tags/0.0.2.tar.gz',
+    url='https://github.com/soliujing/certbot-dns-yandex',
+    download_url='https://github.com/soliujing/certbot-dns-yandex',
     author="Bikramjeet Singh",
     license='Apache License 2.0',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
@@ -66,5 +66,5 @@ setup(
             'dns-dynu = certbot_dns_dynu.dns_dynu:Authenticator',
         ],
     },
-    test_suite='certbot_dns_dynu',
+    test_suite='certbot_dns_yandex',
 )
