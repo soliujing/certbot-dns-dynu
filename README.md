@@ -1,4 +1,5 @@
 certbot-dns-yandex
+
 forked from upstream and modified a bit to support yandex dns API :)
 
 ============
@@ -46,6 +47,7 @@ Usage
 -----
 
 
+
 ```
 certbot ... \
         -a dns-yandex  \
@@ -53,6 +55,8 @@ certbot ... \
         --dns-yandex-propagation-seconds 1880
         certonly
 ```
+
+don't know why propagation on yandex need such long time, 30 mins is a safe value.
 
 
 Credits
