@@ -52,7 +52,7 @@ Usage
 certbot ... \
         -a dns-yandex  \
         --dns-yandex-credentials ~/yandex-credentials.ini \
-        --dns-yandex-propagation-seconds 1880
+        --dns-yandex-propagation-seconds 1880 \
         certonly
 ```
 
